@@ -1,2 +1,4 @@
 # Uncertainty-Aware GNN
- Multi-Hop Evidence Fusion for Uncertainty-Aware GNNs
+## This is the source code of paper "Multi-Hop Evidence Fusion for Uncertainty-Aware Graph Neural Networks".
+
+## ....

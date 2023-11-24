@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="64429c8f-72af-4ba5-af9f-dd8679969773" name="变更" comment="" />
+    <list default="true" id="64429c8f-72af-4ba5-af9f-dd8679969773" name="变更" comment="Add files" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -35,11 +35,46 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1700817116686</updated>
-      <workItem from="1700817120322" duration="498000" />
+      <workItem from="1700817120322" duration="890000" />
     </task>
+    <task id="LOCAL-00001" summary="Add files">
+      <created>1700817728981</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1700817728981</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="main" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Add files" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add files" />
   </component>
 </project>
