@@ -4,7 +4,7 @@ import copy
 import numpy as np
 
 from lossfunc import AverageMeter, rand_prop
-from model import UGN
+from model import EFGNN
 from utils import build_optimizer
 
 
@@ -15,7 +15,7 @@ def train(dataset, args):
     best_acc = 0
     patience_t = 0
     best_loss = np.inf
-    model = UGN(args)
+    model = EFGNN(args)
     if torch.cuda.is_available():
         model.cuda()
         dataset.y = dataset.y.cuda()
@@ -34,7 +34,7 @@ def train(dataset, args):
         optimizer.zero_grad()
         if args.model_type == 'GCN':
             evidence, evidence_a, u_a, loss = model(dataset.x.cuda(), target, mask, dataset.edge_index.cuda())
-        elif args.model_type == 'UGN':
+        elif args.model_type == 'EFGNN':
             evidence, evidence_a, u_a, loss = model(data_list, target, mask)
         loss.backward()
         optimizer.step()
@@ -77,7 +77,7 @@ def test(dataset, test_model, args):
     mask = dataset.val_mask if args.is_val else dataset.test_mask
     data_num += target[mask].size(0)
     with torch.no_grad():
-        if args.model_type == 'UGN':
+        if args.model_type == 'EFGNN':
             evidence, evidence_a, u_a, loss = test_model(data_list, target, mask)
             _, predicted = torch.max(evidence_a.data, 1)
         elif args.model_type == 'GCN':
