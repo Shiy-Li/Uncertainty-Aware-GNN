@@ -174,7 +174,6 @@ def ce_loss(p, alpha, c):
     E = alpha - 1
     label = F.one_hot(p, num_classes=c)
     A = torch.sum(label * (torch.digamma(S) - torch.digamma(alpha)), dim=1, keepdim=True)
-    # print('A', A.mean())
     return A
 
 
@@ -185,7 +184,6 @@ def mse_loss(p, alpha, c, global_step, annealing_step):
     label = F.one_hot(p, num_classes=c)
     A = torch.sum((label - m) ** 2, dim=1, keepdim=True)
     B = torch.sum(m * (1 - m) / (S + 1), dim=1, keepdim=True)
-    #     print('cls',(A+B).mean())
     return A + B
 
 
@@ -195,8 +193,6 @@ def KLL(p, E, c, kl, dis):
     alp = E * (1 - label) + 1
     C = kl * KL(alp, c)
     D = dis * get_dissonance(alpha).unsqueeze(-1)
-    # print('C', KL(alp, c).mean())
-    # print('D', get_dissonance(alpha).mean())
     return C + D
 
 

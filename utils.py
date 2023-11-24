@@ -1,8 +1,9 @@
 import torch.optim as optim
 
+
 def build_optimizer(args, params):
     weight_decay = args.weight_decay
-    filter_fn = filter(lambda p : p.requires_grad, params)
+    filter_fn = filter(lambda p: p.requires_grad, params)
     if args.opt == 'adam':
         optimizer = optim.Adam(filter_fn, lr=args.lr, weight_decay=args.weight_decay)
     elif args.opt == 'sgd':

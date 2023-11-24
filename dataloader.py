@@ -19,22 +19,12 @@ def get_dataset(ds, seed):
         dataset = Amazon(root='./data/Amazon/', name=ds)
         # Split the edges into train, validation and test sets
         dataset = set_train_val_test_split(seed, dataset)
-    #     elif ds == 'CoauthorCS':
-    #         dataset = Coauthor(path, 'CS')
-    #     elif ds in ['cornell', 'texas', 'wisconsin']:
-    #         dataset = WebKB(root=path, name=ds, transform=T.NormalizeFeatures())
-    #     elif ds in ['chameleon', 'squirrel']:
-    #         dataset = WikipediaNetwork(root=path, name=ds, transform=T.NormalizeFeatures())
-    #         use_lcc = False
-    #     elif ds == 'film':
-    #         dataset = Actor(root=path, transform=T.NormalizeFeatures())
     else:
         raise Exception('Unknown dataset.')
     data, edge_index, target = dataset.x, dataset.edge_index, dataset.y
     num_nodes = data.shape[0]
     adj = sp.coo_matrix((torch.ones(edge_index.shape[1]), edge_index), shape=(num_nodes, num_nodes))
     # Normalize the adjacency matrix
-    # adj = normalize(adj, norm='l1', axis=1)
     adj = normalize_adj(adj)
     # Convert the normalized adjacency matrix back to a PyTorch tensor
     adj = torch.FloatTensor(adj.toarray())
