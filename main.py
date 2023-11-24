@@ -24,7 +24,7 @@ def parameter_parser():
     parser.add_argument('--weight-decay', type=float, default=0.02, help='the weight of decay')
     parser.add_argument('--opt-scheduler', type=str, default='none')
     parser.add_argument('--num-hops', type=int, default=2)
-    parser.add_argument('--model-type', type=str, default='UGN')
+    parser.add_argument('--model-type', type=str, default='EFGNN')
     parser.add_argument('--save-model', type=bool, default=False)
     parser.add_argument('--opt-decay-step', type=int, default=[50, 100, 200])
     parser.add_argument('--opt-decay-rate', type=float, default=0.5)
